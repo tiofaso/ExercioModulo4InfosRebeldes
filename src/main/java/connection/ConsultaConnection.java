@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class ConsultaConnection {//Consulta dados na DB
     public void consultaDados() {
 
-        String sql = "SELECT id_usuario, nome FROM usuarios";
+        String sql = "SELECT * FROM tb_rebeldes";
 
         //Abrindo conexão
         Connection conexao = ConexaoConnection.getConnection();

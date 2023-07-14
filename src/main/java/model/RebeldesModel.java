@@ -1,6 +1,6 @@
 package model;
 
-public class RebeldesModel {
+public abstract class RebeldesModel implements RebeldeInterfaceModel {
     //Atributos
     private String nome;
     private Integer idade;

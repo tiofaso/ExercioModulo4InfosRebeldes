@@ -11,6 +11,7 @@ public class ConexaoConnection {
                     "postgres", "1248Mani!");
             return connection;
         }catch (SQLException e){
+            System.out.println("Deu ruim aqui na conexão! :/");
             e.printStackTrace();
             return null;
         }
