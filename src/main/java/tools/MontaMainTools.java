@@ -1,7 +1,6 @@
 package tools;
 
-import Extras.RebeldesLogoExtras;
-import connection.ConsultaConnection;
+import extras.RebeldesLogoExtras;
 
 public class MontaMainTools {
     public void menu(){
