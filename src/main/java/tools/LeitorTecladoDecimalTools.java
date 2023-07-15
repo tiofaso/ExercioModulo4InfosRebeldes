@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class LeitorTecladoDecimalTools {
     private BigDecimal valorDigitado;
 
-    public BigDecimal teclado(){
+    public BigDecimal teclado() {
         Scanner entrada = new Scanner(System.in);
 
         valorDigitado = entrada.nextBigDecimal();

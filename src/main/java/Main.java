@@ -23,7 +23,7 @@ public class Main extends MercadoCestaModel {
         MenuSairTools valorSair = new MenuSairTools();
         int sair = 0;
 
-        while (sair == 0){
+        while (sair == 0) {
 
             //Executando as opções do menu
             switch (opcao) {

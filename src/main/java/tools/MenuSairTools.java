@@ -2,7 +2,8 @@ package tools;
 
 public class MenuSairTools {
     private int sair;
-    public int sair(){
+
+    public int sair() {
         LeitorTecladoIntTools tecladoInt = new LeitorTecladoIntTools();
 
         System.out.println("\n----");

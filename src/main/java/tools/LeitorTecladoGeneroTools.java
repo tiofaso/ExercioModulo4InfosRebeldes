@@ -6,12 +6,12 @@ public class LeitorTecladoGeneroTools {
     private int valorDigitado;
     private String generoFinal;
 
-    public String teclado(){
+    public String teclado() {
         Scanner entrada = new Scanner(System.in);
 
         valorDigitado = entrada.nextInt();
 
-        switch (valorDigitado){
+        switch (valorDigitado) {
             case 1:
                 generoFinal = "homem cis";
                 break;

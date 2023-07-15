@@ -3,7 +3,7 @@ package tools;
 import extras.RebeldesLogoExtras;
 
 public class MontaMainTools {
-    public void menu(){
+    public void menu() {
         RebeldesLogoExtras logo = new RebeldesLogoExtras();
         logo.logo();
 
