@@ -1,8 +1,9 @@
 package tools;
 
 import connection.*;
+import model.MercadoCestaModel;
 
-public class MenuEscolhasTools{
+public class MenuEscolhasTools extends MercadoCestaModel {
     //Atributos
     private int id;
     private String nome;
@@ -136,15 +137,43 @@ public class MenuEscolhasTools{
         if(idRebelde.consultaIdMercado(id).equals("inativo")){
             System.out.println("Você é um traidor e não pode fazer compras!");
         }else {
-            System.out.println("Escolha um dos itens abaixo:");
+            System.out.println("Escolha a quantidade um dos itens abaixo:");
             MenuMercadoTools menuMercado = new MenuMercadoTools();
             menuMercado.mostraMenu();
+
+            System.out.println("\nSua compra deu:");
+            System.out.println("-----------------");
+
+
+            //Separando a cesta de compras e calculando os valores
+            String cestaItem[] = getMercadoCesta().toArray(new String[0]);
+            int arma = Integer.parseInt(cestaItem[0]);
+            int municao= Integer.parseInt(cestaItem[1]);
+            int agua = Integer.parseInt(cestaItem[2]);
+            int comida = Integer.parseInt(cestaItem[3]);
+
+            System.out.println("ARMA: " + cestaItem[0] + " (un) = " + "C$" + (100 * arma));
+            System.out.println("MUNIÇÃO: " + cestaItem[1] + " (un) = " + "C$" + (30 * municao));
+            System.out.println("ÁGUA: " + cestaItem[2] + " (un) = " + "C$" + (5 * agua));
+            System.out.println("COMIDA: " + cestaItem[3] + " (un) =" + "C$" + (15 * comida));
+            System.out.println("-----------------");
+
+            int totalCompra = (100 * arma) + (30 * municao) + (5 * agua) + (15 * comida);
+            System.out.println("TOTAL: CR$" + totalCompra);
+
+            InsereCompraConnection carrinho = new InsereCompraConnection();
+            carrinho.finalizaCompra(id,arma,municao,agua,comida);
+
         }
 
-
+    }
+    public void case8Main(){
+        System.out.println("> PEDIDOS DO MERCADO");
+        ConsultaPedidosMercadoConnection listaMercado = new ConsultaPedidosMercadoConnection();
+        listaMercado.mostraPedidos();
     }
     //-----
-    public void case8Main(){
+    public void case9Main(){
         System.out.println("> RELATÓRIOS");
          ConsultaRelatoriosConnection relatorios = new ConsultaRelatoriosConnection();
          relatorios.consultaDados();
