@@ -2,17 +2,18 @@ package tools;
 
 import connection.AtualizaConnection;
 import connection.ConsultaConnection;
+import connection.ConsultaInventarioConnection;
 import connection.InsereConnection;
-import model.RebeldeInterfaceModel;
-import model.RebeldesModel;
 
 public class MenuEscolhasTools{
     //Atributos
+    private int id;
     private String nome;
     private int idade;
     private String genero;
-    private String localizacao;
+    private String terranatal;
     private String status;
+
 
 
     //Instanciando objetos comuns
@@ -40,12 +41,16 @@ public class MenuEscolhasTools{
         LeitorTecladoGeneroTools generoTeclado = new LeitorTecladoGeneroTools();
         genero = generoTeclado.teclado();
 
-        System.out.println("Digite a localização do Rebelde");
-        localizacao = tecladoString.teclado();
+        System.out.println("Digite a terra natal do Rebelde");
+        terranatal = tecladoString.teclado();
 
+        System.out.println("Quais são os pertences do Rebelde? Faça uma lista:");
+        LeitorTecladoParagrafoTools inventarioRebelde = new LeitorTecladoParagrafoTools();
+
+        String inventario = inventarioRebelde.teclado();
 
         InsereConnection novoNome = new InsereConnection();
-        novoNome.insereDados(nome,idade,genero,localizacao,"ativo");
+        novoNome.insereDados(nome,idade,genero,terranatal,"ativo",inventario);
 
         System.out.println("\nInformações atuais da base de dados:");
         listaNomes.consultaDados();
@@ -82,6 +87,13 @@ public class MenuEscolhasTools{
     }
     //-----
     public void case4Main(){
+        System.out.println("Digite o id de um rebelde para ver o seu inventário:");
+        listaNomes.consultaDados();
+
+        id = tecladoInt.teclado();
+
+        ConsultaInventarioConnection inventario = new ConsultaInventarioConnection();
+        inventario.mostraIventario(id);
 
     }
     //-----

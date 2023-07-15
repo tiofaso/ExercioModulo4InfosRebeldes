@@ -28,7 +28,7 @@ public class Main {
 
             //Executando as opções do menu
             switch (opcao) {
-                case 1:
+                case 1: //Inserir rebelde na base
                     MenuEscolhasTools case1 = new MenuEscolhasTools();
                     case1.case1Main();
 
@@ -38,7 +38,7 @@ public class Main {
                     opcao = 0; //para abrir o default
 
                     break;
-                case 2:
+                case 2: //Atualização da localização do rebelde
                     MenuEscolhasTools case2 = new MenuEscolhasTools();
                     case2.case2Main();
 
@@ -48,7 +48,7 @@ public class Main {
                     opcao = 0; //para abrir o default
 
                     break;
-                case 3:
+                case 3: //Lista os rebeldes cadastrados na base
                     MenuEscolhasTools case3 = new MenuEscolhasTools();
                     case3.case3Main();
 
@@ -58,7 +58,24 @@ public class Main {
                     opcao = 0; //para abrir o default
 
                     break;
-                case 4:
+                case 4: //mostra o inventário de um rebelde específico
+                    MenuEscolhasTools case4 = new MenuEscolhasTools();
+                    case4.case4Main();
+
+                    //Teclado para encerrar o programa
+                    sair = valorSair.sair();
+                    opcao = 0; //para abrir o default
+
+                    break;
+                case 5: //denuncia rebeldes
+
+
+                    //Teclado para encerrar o programa
+                    sair = valorSair.sair();
+                    opcao = 0; //para abrir o default
+
+                    break;
+                case 6: //relatórios do sistema
 
 
                     //Teclado para encerrar o programa

@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class ConsultaConnection {//Consulta dados na DB
     public void consultaDados() {
 
-        String sql = "SELECT * FROM tb_rebeldes";
+        String sql = "SELECT * FROM tb_rebeldes ORDER BY id";
 
         //Abrindo conexão
         Connection conexao = ConexaoConnection.getConnection();
@@ -19,9 +19,16 @@ public class ConsultaConnection {//Consulta dados na DB
 
                 ResultSet resultSet = statement.executeQuery(sql);
 
+                System.out.println("-------------------------------------------------------------------------------------------------------------");
+
                 while (resultSet.next()) {
-                    System.out.println("id: " + resultSet.getLong("id_usuario") + ", nome: " +
-                            resultSet.getString("nome"));
+                    System.out.println("ID: " + resultSet.getLong("id") +
+                            " | NOME: " + resultSet.getString("nome") +
+                            " | IDADE: " + resultSet.getString("idade") +
+                            " | GÊNERO: " + resultSet.getString("genero") +
+                            " | TERRA NATAL: " + resultSet.getString("terranatal") +
+                            " | STATUS: " + resultSet.getString("status"));
+                    System.out.println("-------------------------------------------------------------------------------------------------------------");
                 }
 
             }
