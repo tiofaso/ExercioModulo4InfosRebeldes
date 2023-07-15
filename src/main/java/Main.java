@@ -1,5 +1,3 @@
-import connection.*;
-import model.RebeldesModel;
 import tools.*;
 
 public class Main {
@@ -67,16 +65,37 @@ public class Main {
                     opcao = 0; //para abrir o default
 
                     break;
-                case 5: //denuncia rebeldes
-
+                case 5: //mostrar histórico de localização
+                    MenuEscolhasTools case5 = new MenuEscolhasTools();
+                    case5.case5Main();
 
                     //Teclado para encerrar o programa
                     sair = valorSair.sair();
                     opcao = 0; //para abrir o default
 
                     break;
-                case 6: //relatórios do sistema
+                case 6: //denuncia rebeldes
+                    MenuEscolhasTools case6 = new MenuEscolhasTools();
+                    case6.case6Main();
 
+                    //Teclado para encerrar o programa
+                    sair = valorSair.sair();
+                    opcao = 0; //para abrir o default
+
+                    break;
+                case 7: //mercado
+                    MenuEscolhasTools case7 = new MenuEscolhasTools();
+                    case7.case7Main();
+
+                    //Teclado para encerrar o programa
+                    sair = valorSair.sair();
+                    opcao = 0; //para abrir o default
+
+                    break;
+
+                case 8: //relatórios do sistema
+                    MenuEscolhasTools case8 = new MenuEscolhasTools();
+                    case8.case8Main();
 
                     //Teclado para encerrar o programa
                     sair = valorSair.sair();

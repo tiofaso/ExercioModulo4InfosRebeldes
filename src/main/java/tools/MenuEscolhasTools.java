@@ -1,9 +1,6 @@
 package tools;
 
-import connection.AtualizaConnection;
-import connection.ConsultaConnection;
-import connection.ConsultaInventarioConnection;
-import connection.InsereConnection;
+import connection.*;
 
 public class MenuEscolhasTools{
     //Atributos
@@ -14,6 +11,7 @@ public class MenuEscolhasTools{
     private String terranatal;
     private String status;
 
+    private String localizacao;
 
 
     //Instanciando objetos comuns
@@ -22,7 +20,7 @@ public class MenuEscolhasTools{
     LeitorTecladoIntTools tecladoInt = new LeitorTecladoIntTools();
 
     public void case1Main(){
-        System.out.println("> INSERIR NOME");
+        System.out.println("> INSERIR NOME DO REBELDE");
         System.out.println("Digite o nome do Rebelde:");
         nome = tecladoString.teclado();
 
@@ -57,36 +55,30 @@ public class MenuEscolhasTools{
     }
     //-----
     public void case2Main(){
-        System.out.println("> ATUALIZAR NOME");
+        System.out.println("> ATUALIZAR LOCALIZAÇÃO");
 
-        //Mostrando lista de nomes
-        System.out.println("Informações atuais da base de dados:");
+        System.out.println("Digite o id de um rebelde para atualizar a sua localização:");
         listaNomes.consultaDados();
 
-        System.out.println("Digite o id que você quer alterar:");
+        id = tecladoInt.teclado();
 
-        // = tecladoInt.teclado();
+        System.out.println("Digite a localização atual do Rebelde");
 
-        System.out.println("Digite o novo nome");
-        nome = tecladoString.teclado();
-
-        AtualizaConnection mudaNome = new AtualizaConnection();
-
-        //mudaNome.atualizaDados(id, nome);
-
-        //Mostrando lista de nomes
-        System.out.println("\nInformações atuais da base de dados:");
-        listaNomes.consultaDados();
+        localizacao = tecladoString.teclado();
+        AtualizaLocalizacaoConnection novaLocalizacao = new AtualizaLocalizacaoConnection();
+        novaLocalizacao.novaLocalizacao(id,localizacao);
 
     }
     //-----
     public void case3Main(){
+        System.out.println("> LISTAR REBELDES");
         //Mostrando lista de nomes
         System.out.println("Informações atuais da base de dados:");
         listaNomes.consultaDados();
     }
     //-----
     public void case4Main(){
+        System.out.println("> PESQUISA DE INVENTARIO");
         System.out.println("Digite o id de um rebelde para ver o seu inventário:");
         listaNomes.consultaDados();
 
@@ -96,16 +88,66 @@ public class MenuEscolhasTools{
         inventario.mostraIventario(id);
 
     }
-    //-----
+
     public void case5Main(){
+        System.out.println("> PESQUISA DE LOCALIZAÇÃO");
+        System.out.println("Digite o id de um rebelde para ver seu histórico de localização:");
+        listaNomes.consultaDados();
+
+        id = tecladoInt.teclado();
+
+        ConsultaLocalizacaoConnection localizacao = new ConsultaLocalizacaoConnection();
+        localizacao.mostraLocalizacao(id);
 
     }
     //-----
     public void case6Main(){
+        System.out.println("> DENUNCIAR REBELDE");
+
+        listaNomes.consultaDados();
+        System.out.println("Digite o seu id para realizarmos a denúncia:");
+
+        int idDelator = tecladoInt.teclado();
+
+        listaNomes.consultaDados();
+        System.out.println("Agora digite o id de quem está nos traindo:");
+
+        int idTraidor = tecladoInt.teclado();
+
+        InsereDenunciaTraidorConnection denucia = new InsereDenunciaTraidorConnection();
+        denucia.insereTraidor(idDelator,idTraidor);
+
+        if(denucia.tresStrikes(idTraidor) >= 3){
+             AtualizaStatusTraidorConnection rebelde = new AtualizaStatusTraidorConnection();
+             rebelde.traidor(idTraidor);
+        }
 
     }
     //-----
-    public void padraoMain(){
+    public void case7Main(){
+        System.out.println("> MERCADO");
+        System.out.println("Seja bem-vinde ao mercado!");
+
+        listaNomes.consultaDados();
+        System.out.println("Digite o seu id:");
+        id = tecladoInt.teclado();
+
+        ConsultaIdMercadoConnection idRebelde = new ConsultaIdMercadoConnection();
+        if(idRebelde.consultaIdMercado(id).equals("inativo")){
+            System.out.println("Você é um traidor e não pode fazer compras!");
+        }else {
+            System.out.println("Escolha um dos itens abaixo:");
+            MenuMercadoTools menuMercado = new MenuMercadoTools();
+            menuMercado.mostraMenu();
+        }
+
+
+    }
+    //-----
+    public void case8Main(){
+        System.out.println("> RELATÓRIOS");
+         ConsultaRelatoriosConnection relatorios = new ConsultaRelatoriosConnection();
+         relatorios.consultaDados();
 
     }
 

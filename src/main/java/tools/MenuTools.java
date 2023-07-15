@@ -12,8 +12,10 @@ public class MenuTools {
         menu.put(2,"Atualizar Localização do Rebelde");
         menu.put(3,"Mostrar base de Rebeldes");
         menu.put(4,"Mostrar inventário dos Rebeldes");
-        menu.put(5,"Denunciar Rebeldes");
-        menu.put(6,"Relatórios");
+        menu.put(5,"Mostrar localização dos Rebeldes");
+        menu.put(6,"Denunciar Rebeldes");
+        menu.put(7,"Mercado");
+        menu.put(8,"Relatórios");
 
         System.out.println("Escolha uma das opções abaixo:");
         for (Integer key : menu.keySet()) {
